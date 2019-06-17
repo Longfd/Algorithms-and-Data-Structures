@@ -33,11 +33,64 @@ public:
 	// additional method
 	int capacity() const { return arrayLength; }
 
+	// iterators to start and end of list
+	class iterator;
+	iterator begin() { return iterator(element); }
+	iterator end() { return iterator(element + listSize); }
+
 	// iterator for arrayList
 	class iterator
 	{
+	public:
+		// typedef required by c++ for bidirectional iterator
+		typedef std::bidirectional_iterator_tag iterator_category;
+		typedef T value_type;
+		typedef std::ptrdiff_t difference_type;
+		typedef T* pointer;
+		typedef T& reference;
+
+		// constructor
+		iterator(T* thePosition = 0) : 
+			_position(thePosition)
+		{
+		}
+
+		//dereferencing operators
+		T& operator*() const { return *_position; }
+		T* operator->() const { return &*_position; }
+
+		// increment
+		iterator& operator++() //preincrement
+		{
+			++_position; return *this;
+		}
+		iterator& operator++(int) //postincrement
+		{
+			iterator old = *this;
+			++_position; 
+			return old;
+		}
+
+		// decrement
+		iterator& operator--() //predecrement
+		{
+			--_position; return *this;
+		}
+		iterator& operator--(int) //postdecrement
+		{
+			iterator old = *this;
+			--_position;
+			return old;
+		}
+
+		// equality testing
+		bool operator!=(const iterator& right) const
+		{ return _position != right._position; }
+		bool operator==(const iterator& right) const
+		{ return _position == right._position; }
 
 	protected:
+		T* _position;
 	};
 
 protected:
