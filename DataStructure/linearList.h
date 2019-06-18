@@ -6,6 +6,7 @@ template<typename T>
 class  linearList
 {
 public:
+	//ADT(Abstract Data Type) methods
 	virtual ~ linearList() {}
 
 	virtual bool empty() const = 0;

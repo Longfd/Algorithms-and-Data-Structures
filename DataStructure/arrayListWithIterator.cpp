@@ -5,7 +5,7 @@ int main()
 {
 	try
 	{
-		arrayList<int> list;
+		arrayList<int> list(5);
 		list.insert(0, 1);
 		list.insert(0, 2);
 		list.insert(0, 3);
@@ -28,6 +28,9 @@ int main()
 		for (it = end; it != begin; )
 			std::cout << *--it << " ";
 		std::cout << std::endl;
+
+		std::cout << "capacity:" << list.capacity() << '\n'
+			<< "size:" << list.size() << '\n';
 	}
 	catch (const std::exception& e) {
 		std::cout << "std::exception:" << e.what();
