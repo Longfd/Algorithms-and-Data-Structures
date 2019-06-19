@@ -241,7 +241,8 @@ void chain<T>::output(std::ostream& out) const
 
 // overload <<
 template<typename T>
-std::ostream& operator<<(std::ostream out, chain<T>& list)
+std::ostream& operator<<(std::ostream& out, const chain<T>& list)
 {
-	return list.output(out);
+	list.output(out);
+	return out;
 }

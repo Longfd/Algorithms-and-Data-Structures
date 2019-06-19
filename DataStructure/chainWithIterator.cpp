@@ -1,6 +1,34 @@
 #include "chainWithIterator.h"
 
 
+typedef struct Student
+{
+	Student() :
+		name(), age(0)
+	{}
+	Student(const std::string name, const int age):
+		name(name), age(age)
+	{}
+
+	bool operator==(const Student& stu) {
+		return (name == stu.name) &&
+			(age == stu.age);
+	}
+
+	void output(std::ostream& out) const{
+		out << "name:" << name
+			<< " age:" << age;
+	}
+
+	std::string name;
+	int age;
+}Student;
+
+std::ostream& operator<<(std::ostream& out, const Student& stu) {
+	stu.output(out);
+	return out;
+}
+
 void chainUnitTest()
 {
 	try
@@ -13,11 +41,11 @@ void chainUnitTest()
 		list.insert(0, 5);
 		list.insert(0, 6);
 
-		//std::cout << list;
-
 		chain<int>::iterator it;
 		chain<int>::iterator begin = list.begin();
 		chain<int>::iterator end = list.end();
+
+		//std::cout << list;
 
 		//Output using forward iterator
 		for (it = begin; it != end; ++it)
@@ -30,6 +58,18 @@ void chainUnitTest()
 		std::cout << std::endl;*/
 
 		std::cout << "size:" << list.size() << '\n';
+
+		// test dereference operator -> and *
+		chain<Student> stuList;
+		stuList.insert(0, Student("Allen", 18));
+		stuList.insert(0, Student("Kobe", 18));
+
+		chain<Student>::iterator itStu = stuList.begin();
+		std::cout << (*itStu).name << " " << (*itStu).age << "\n";
+		itStu++;
+		std::cout << itStu->name << " " << itStu->age << "\n";
+
+		std::cout << stuList;
 	}
 	catch (const std::exception& e) {
 		std::cout << "std::exception:" << e.what();
