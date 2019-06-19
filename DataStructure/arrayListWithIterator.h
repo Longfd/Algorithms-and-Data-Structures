@@ -7,6 +7,10 @@
 #include <iostream>
 #include <iterator>
 
+
+// Test Method
+void arrayListUnitTest();
+
 template<typename T> 
 class arrayList : public linearList<T>
 {
@@ -15,7 +19,7 @@ public:
 	arrayList(const arrayList<T>&);
 	~arrayList() { delete[] element; }
 
-	//ADT(Abstract Data Type)
+	// ADT(Abstract Data Type)
 	bool empty() const override { return listSize == 0; }
 
 	int size() const override { return listSize; }

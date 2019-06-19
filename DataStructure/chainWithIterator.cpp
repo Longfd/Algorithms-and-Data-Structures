@@ -1,11 +1,11 @@
-#include "arrayListWithIterator.h"
+#include "chainWithIterator.h"
 
 
-void arrayListUnitTest()
+void chainUnitTest()
 {
 	try
 	{
-		arrayList<int> list(5);
+		chain<int> list;
 		list.insert(0, 1);
 		list.insert(0, 2);
 		list.insert(0, 3);
@@ -15,9 +15,9 @@ void arrayListUnitTest()
 
 		//std::cout << list;
 
-		arrayList<int>::iterator it;
-		arrayList<int>::iterator begin = list.begin();
-		arrayList<int>::iterator end = list.end();
+		chain<int>::iterator it;
+		chain<int>::iterator begin = list.begin();
+		chain<int>::iterator end = list.end();
 
 		//Output using forward iterator
 		for (it = begin; it != end; ++it)
@@ -25,12 +25,11 @@ void arrayListUnitTest()
 		std::cout << std::endl;
 
 		//Output using backward iterator
-		for (it = end; it != begin; )
+		/*for (it = end; it != begin; )
 			std::cout << *--it << " ";
-		std::cout << std::endl;
+		std::cout << std::endl;*/
 
-		std::cout << "capacity:" << list.capacity() << '\n'
-			<< "size:" << list.size() << '\n';
+		std::cout << "size:" << list.size() << '\n';
 	}
 	catch (const std::exception& e) {
 		std::cout << "std::exception:" << e.what();

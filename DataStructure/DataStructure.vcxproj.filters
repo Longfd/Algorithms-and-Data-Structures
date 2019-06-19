@@ -24,9 +24,21 @@
     <ClInclude Include="arrayListWithIterator.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="chainWithIterator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="chainNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="arrayListWithIterator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="chainWithIterator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
