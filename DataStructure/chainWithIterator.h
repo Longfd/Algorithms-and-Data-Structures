@@ -34,6 +34,9 @@ public:
 
 	void output(std::ostream& out) const override;
 
+	// check palindrome
+	bool checkPalindromeList() const;
+
 	// iterators to start and end of list
 	class iterator;
 	iterator begin() { return iterator(firstNode); }
@@ -186,11 +189,11 @@ int chain<T>::indexOf(const T& element) const
 template<typename T>
 void chain<T>::erase(int index)
 {
-	//���������ṹɾ����Ҫǰ��ڵ�
+	//单向链表结构删除需要前项节点
 	checkIndex(index);
 	chainNode<T>* pre = firstNode, * deleteNode = NULL;
 
-	//��Ҫ�����������: ��ǰ��, ��ǰ��(�׽ڵ�)
+	//需要区分两种情况: 由前项, 无前项(首节点)
 	if (index == 0) {
 		deleteNode = firstNode;
 		firstNode = firstNode->next;
@@ -210,7 +213,7 @@ void chain<T>::erase(int index)
 template<typename T>
 void chain<T>::insert(int index, const T& element)
 {
-	//������get(), erase()��ͬ
+	//条件与get(), erase()不同
 	if (index < 0 || index > listSize) {
 		std::ostringstream oss;
 		oss << "index:" << index << " listSize:" << listSize;
@@ -245,4 +248,85 @@ std::ostream& operator<<(std::ostream& out, const chain<T>& list)
 {
 	list.output(out);
 	return out;
+}
+
+template<typename T>
+bool chain<T>::checkPalindromeList() const
+{
+	// 单个节点为回文
+	if (listSize == 1) return true;
+
+	// 两个相同节点为回文
+	if (listSize == 2 &&
+		firstNode->element == firstNode->next->element)
+		return true;
+	else
+		return false;
+
+	// 3个或以上
+	// 使用快慢指针找中间节点(区分奇偶情况)
+	chainNode<T>* fast , *slow, *mid2 = nullptr;
+	fast = slow = firstNode;
+	while (fast->next != nullptr)
+	{
+		slow = slow->next;
+		fast = fast->next;
+		if (fast->next != nullptr) {
+			fast = fast->next;
+			mid2 = slow->next;
+		}
+		else {
+			mid2 = nullptr; // odd
+		}
+	}
+
+	// 从中点向后逆转链表
+	chainNode<T>* mid = slow;
+	chainNode<T>* elem = 0, *prev = 0, *save = 0;
+	if (mid2 == nullptr) { // odd
+		elem = mid;
+		prev = mid->next;
+	}
+	else { // even
+		elem = mid2;
+		prev = mid2->next;
+		mid2->next = nullptr;
+	}
+	mid->next = nullptr;
+
+	if (prev == nullptr) // only 3 node, prev = elem->next = null
+		save = nullptr;
+	else
+		save = prev->next;
+
+	while (save!=nullptr) {
+		prev->next = elem;
+		elem = prev;
+		prev = save;
+		save = save->next;
+	}
+
+	if (prev == nullptr) // only 3 node, prev = elem->next = null
+		prev = elem;
+	else
+		prev->next = elem;
+
+	chainNode<T>* end = prev;
+	chainNode<T>* front = firstNode;
+
+	// 头尾同时遍历比较, 检测是否为回文
+	bool palindrome = true;
+	while ( front != end &&
+		front != nullptr &&  
+		end != nullptr)
+	{
+		if (front->element != end->element) {
+			palindrome = false;
+			break;
+		}
+		front = front->next;
+		end = end->next;
+	}
+
+	return palindrome;
 }
