@@ -10,16 +10,16 @@ void chainUnitTest()
 		chain<int> list;
 		list.insert(0, 1);
 		list.insert(0, 1);
-		/*list.insert(0, 1);
 		list.insert(0, 1);
 		list.insert(0, 1);
-		list.insert(0, 6);*/
+		list.insert(0, 1);
+		list.insert(0, 6);
 
 		//test iterator
 		iteratorTest(list);
 
 		//test palindrome
-		list.checkPalindromeList() ? std::cout << "is palindrome\n" : std::cout << "not palindrome\n";
+		list.checkPalindromeList2() ? std::cout << "is palindrome\n" : std::cout << "not palindrome\n";
 	}
 	catch (const std::exception& e) {
 		std::cout << "std::exception:" << e.what();

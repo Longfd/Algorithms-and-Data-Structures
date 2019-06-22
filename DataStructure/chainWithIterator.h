@@ -37,6 +37,9 @@ public:
 	// check palindrome
 	bool checkPalindromeList() const;
 
+	// check palindrome  with array
+	bool checkPalindromeList2() const;
+
 	// iterators to start and end of list
 	class iterator;
 	iterator begin() { return iterator(firstNode); }
@@ -330,3 +333,31 @@ bool chain<T>::checkPalindromeList() const
 
 	return palindrome;
 }
+
+template<typename T>
+bool chain<T>::checkPalindromeList2() const
+{
+	chainNode<T>* origin, * reverse, * p;
+	origin = new chainNode<T>[listSize];
+	reverse = new chainNode<T>[listSize];
+	p = firstNode;
+
+	for (int i = 0; i < listSize; ++i) {
+		origin[i] = *p;
+		reverse[listSize - 1 - i] = *p;
+		p = p->next;
+	}
+
+	bool palindrome = true;
+	for (int i = 0; i < listSize; ++i) {
+		if (origin[i].element != reverse[i].element) {
+			palindrome = false;
+			break;
+		}
+	}
+	delete[] origin;
+	delete[] reverse;
+
+	return palindrome;
+}
+
