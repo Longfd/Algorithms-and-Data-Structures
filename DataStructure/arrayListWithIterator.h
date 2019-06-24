@@ -1,9 +1,9 @@
 #pragma once
 
 #include "linearList.h"
-#include "exception.h"
+#include "myException.h"
+#include "changeLength1D.h"
 #include <sstream>
-#include <algorithm>
 #include <iostream>
 #include <iterator>
 
@@ -100,7 +100,6 @@ public:
 protected:
 	//若索引无效, 则抛出异常
 	void checkIndex(int index) const;
-	void changeLength1D(int newLength);
 
 	T* element;			//存储线性表元素的一维数组
 	int arrayLength;	//一维数组容量
@@ -128,22 +127,6 @@ arrayList<T>::arrayList(const arrayList<T>& list)
 	element = new T[arrayLength];
 	listSize = list.listSize;
 	std::copy(list.element, list.element + listSize, element);
-}
-
-template<typename T>
-void arrayList<T>::changeLength1D(int newLength)
-{
-	if (newLength < 0)
-		throw illegalParameterValue("newLength must be > 0");
-
-	T* temp = new T[newLength];
-	int num = std::min(listSize, newLength);
-	std::copy(element, element + num, temp);
-	delete [] element;
-	element = temp;
-
-	listSize = num;
-	arrayLength = newLength;
 }
 
 template<typename T>
@@ -191,7 +174,6 @@ void arrayList<T>::erase(int index)
 template<typename T>
 void arrayList<T>::insert(int index, const T& el)
 {
-
 	//checkIndex(index);  index can be equal to listSize
 	if (index < 0 || index > listSize) {
 		std::ostringstream s;
@@ -199,8 +181,10 @@ void arrayList<T>::insert(int index, const T& el)
 		throw illegalParameterValue(s.str());
 	}
 
-	if (listSize == arrayLength)
-		changeLength1D(arrayLength * 2);
+	if (listSize == arrayLength) {
+		arrayLength *= 2;
+		changeLength1D(element, listSize, arrayLength);
+	}
 
 	std::copy_backward(element + index, element + listSize, element + listSize + 1);
 	element[index] = el;

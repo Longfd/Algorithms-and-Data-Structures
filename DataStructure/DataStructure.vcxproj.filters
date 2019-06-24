@@ -18,9 +18,6 @@
     <ClInclude Include="linearList.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="exception.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="arrayListWithIterator.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -28,6 +25,18 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="chainNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="arrayStack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="changeLength1D.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="myException.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
