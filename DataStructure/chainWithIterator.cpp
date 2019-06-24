@@ -1,25 +1,38 @@
 #include "chainWithIterator.h"
 
-template<typename T>
-void iteratorTest(chain<T>& list);
+void iteratorTest();
+void testPalindrome();
 
 void chainUnitTest()
 {
 	try
 	{
+		// test iterator
+		iteratorTest();
+
+		// test palindrome
+		testPalindrome();
+
+		// test delete
 		chain<int> list;
 		list.insert(0, 1);
+		list.insert(0, 2);
+		std::cout << list << '\n';
+		list.deleteLastN(1);
+		std::cout << list << '\n';
+
+		// test getMiddle
+		list.clear();
 		list.insert(0, 1);
-		list.insert(0, 1);
-		list.insert(0, 1);
-		list.insert(0, 1);
+		list.insert(0, 2);
+		list.insert(0, 3);
+		std::cout << list << " mid:" << list.getMiddle() <<'\n';
+		list.insert(0, 4);
+		std::cout << list << " mid:" << list.getMiddle() << '\n';
+		list.insert(0, 5);
+		std::cout << list << " mid:" << list.getMiddle() << '\n';
 		list.insert(0, 6);
-
-		//test iterator
-		iteratorTest(list);
-
-		//test palindrome
-		list.checkPalindromeList2() ? std::cout << "is palindrome\n" : std::cout << "not palindrome\n";
+		std::cout << list << " mid:" << list.getMiddle() << '\n';
 	}
 	catch (const std::exception& e) {
 		std::cout << "std::exception:" << e.what();
@@ -59,9 +72,16 @@ std::ostream& operator<<(std::ostream& out, const Student& stu) {
 	return out;
 }
 
-template<typename T>
-void iteratorTest(chain<T>& list)
+void iteratorTest()
 {
+	chain<int> list;
+	list.insert(0, 1);
+	list.insert(0, 2);
+	list.insert(0, 3);
+	list.insert(0, 4);
+	list.insert(0, 5);
+	list.insert(0, 6);
+
 	chain<int>::iterator it;
 	chain<int>::iterator begin = list.begin();
 	chain<int>::iterator end = list.end();
@@ -86,4 +106,32 @@ void iteratorTest(chain<T>& list)
 	std::cout << "iteraotr->:" << itStu->name << " " << itStu->age << "\n";
 	// overload operator <<
 	std::cout << "cout<<list:" << stuList << "\n";
+}
+
+void testPalindrome()
+{
+	chain<int> list, list2, list3;
+
+	list.insert(0, 1);
+	assert(list.checkPalindromeList());
+
+	list.insert(0, 1);
+	assert(list.checkPalindromeList());
+
+	list2.insert(0, 1);
+	list2.insert(0, 2);
+	list2.insert(0, 1);
+	assert(list2.checkPalindromeList());
+
+	list2.insert(0, 1);
+	assert(!list2.checkPalindromeList());
+
+	list3.insert(0, 1);
+	list3.insert(0, 2);
+	list3.insert(0, 2);
+	list3.insert(0, 1);
+	assert(list3.checkPalindromeList());
+
+	list3.insert(0, 1);
+	assert(!list3.checkPalindromeList());
 }

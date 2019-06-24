@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <assert.h>
 #include "linearList.h"
 #include "exception.h"
 #include "chainNode.h"
@@ -35,10 +36,23 @@ public:
 	void output(std::ostream& out) const override;
 
 	// check palindrome
-	bool checkPalindromeList() const;
+	bool checkPalindromeList();
 
 	// check palindrome  with array
 	bool checkPalindromeList2() const;
+
+	// reverse
+	void reverse();
+
+	// delete last n nodes
+	void deleteLastN(int num);
+	void clear();
+
+	// find middle node
+	T& getMiddle() const;
+
+	void sort();
+	void merge2Lists(chain<T>& list2);
 
 	// iterators to start and end of list
 	class iterator;
@@ -94,6 +108,8 @@ public:
 
 protected:
 	void checkIndex(int index) const;
+	chainNode<T>* reverse(chainNode<T>* first);
+	chainNode<T>* findMiddle() const;
 
 	chainNode<T>* firstNode;
 	int listSize;
@@ -254,67 +270,25 @@ std::ostream& operator<<(std::ostream& out, const chain<T>& list)
 }
 
 template<typename T>
-bool chain<T>::checkPalindromeList() const
+bool chain<T>::checkPalindromeList()
 {
 	// 单个节点为回文
 	if (listSize == 1) return true;
 
 	// 两个相同节点为回文
-	if (listSize == 2 &&
-		firstNode->element == firstNode->next->element)
-		return true;
-	else
-		return false;
+	if (listSize == 2) {
+		if(firstNode->element == firstNode->next->element)
+			return true;
+		else
+			return false;
+	}
 
 	// 3个或以上
 	// 使用快慢指针找中间节点(区分奇偶情况)
-	chainNode<T>* fast , *slow, *mid2 = nullptr;
-	fast = slow = firstNode;
-	while (fast->next != nullptr)
-	{
-		slow = slow->next;
-		fast = fast->next;
-		if (fast->next != nullptr) {
-			fast = fast->next;
-			mid2 = slow->next;
-		}
-		else {
-			mid2 = nullptr; // odd
-		}
-	}
+	chainNode<T>* mid = findMiddle();
 
 	// 从中点向后逆转链表
-	chainNode<T>* mid = slow;
-	chainNode<T>* elem = 0, *prev = 0, *save = 0;
-	if (mid2 == nullptr) { // odd
-		elem = mid;
-		prev = mid->next;
-	}
-	else { // even
-		elem = mid2;
-		prev = mid2->next;
-		mid2->next = nullptr;
-	}
-	mid->next = nullptr;
-
-	if (prev == nullptr) // only 3 node, prev = elem->next = null
-		save = nullptr;
-	else
-		save = prev->next;
-
-	while (save!=nullptr) {
-		prev->next = elem;
-		elem = prev;
-		prev = save;
-		save = save->next;
-	}
-
-	if (prev == nullptr) // only 3 node, prev = elem->next = null
-		prev = elem;
-	else
-		prev->next = elem;
-
-	chainNode<T>* end = prev;
+	chainNode<T>* end = reverse(mid);
 	chainNode<T>* front = firstNode;
 
 	// 头尾同时遍历比较, 检测是否为回文
@@ -361,3 +335,117 @@ bool chain<T>::checkPalindromeList2() const
 	return palindrome;
 }
 
+// time:O(n), space: O(1)
+template<typename T>
+chainNode<T>* chain<T>::reverse(chainNode<T>* first)
+{
+	chainNode<T>* p1 = 0, *p2 = 0, *p3 = 0;
+
+	p1 = first;
+	p2 = p1->next;
+	if (p2 == nullptr) return p1;
+
+	p3 = p2->next;
+	if (p3 == nullptr) {
+		p2->next = p1;
+		p1->next = 0;
+	}
+	else {
+		p1->next = 0;
+		while (p3 != 0) {
+			p2->next = p1;
+			p1 = p2;
+			p2 = p3;
+			p3 = p3->next;
+		}
+		p2->next = p1;
+	}
+
+	return p2;
+}
+
+template<typename T>
+void chain<T>::reverse()
+{
+	firstNode = reverse(firstNode);
+}
+
+template<typename T>
+void chain<T>::deleteLastN(int num)
+{
+	chainNode<T>* prev = 0, * del = 0, * tmp = 0;
+
+	if (num < 0 || num > listSize) {
+		std::ostringstream oss;
+		oss << "delete last number:" << num << " listSize:" << listSize;
+		throw illegalParameterValue(oss.str());
+	}
+
+	if (num == listSize) return clear();
+
+	prev = firstNode;
+	for (int i = 0; i < listSize - num - 1; ++i)
+		prev = prev->next;
+
+	del = prev->next;
+	prev->next = 0;
+	while (del != 0)
+	{
+		tmp = del->next;
+		delete del;
+		del = tmp;
+	}
+
+	listSize -= num;
+}
+
+template<typename T>
+void chain<T>::clear()
+{
+	chainNode<T>* p;
+	while (firstNode != 0)
+	{
+		p = firstNode->next;
+		delete firstNode;
+		firstNode = p;
+	}
+
+	listSize = 0;
+}
+
+template<typename T>
+chainNode<T>* chain<T>::findMiddle() const
+{
+	chainNode<T>* fast, *slow;
+	fast = slow = firstNode;
+
+	while (fast->next != 0)
+	{
+		fast = fast->next;
+		slow = slow->next;
+		if (fast->next != 0) 
+			fast = fast->next;
+		else
+			break;
+	}
+
+	return slow;
+}
+
+template<typename T>
+T& chain<T>::getMiddle() const
+{
+	return findMiddle()->element;
+}
+
+template<typename T>
+void chain<T>::merge2Lists(chain<T>& list2)
+{
+
+}
+
+template<typename T>
+void chain<T>::sort()
+{
+
+}
