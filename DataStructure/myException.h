@@ -6,13 +6,26 @@
 class illegalParameterValue
 {
 public:
-	illegalParameterValue() :
-		_message("Illegal parameter value"){}
+	illegalParameterValue(std::string message = "Illegal parameter value") :
+		_message(message) 
+	{
+	}
 
-	illegalParameterValue(const char* message):
-		_message(message) {}
-	illegalParameterValue(const std::string& message) :
-		_message(message) {}
+	void outputMessage() { std::cout << _message << std::endl; }
+
+	const std::string& what() { return _message; }
+
+private:
+	std::string _message;
+};
+
+class stackEmpty
+{
+public:
+	stackEmpty(std::string message = "Illegal operator on empty stack") :
+		_message(message)
+	{
+	}
 
 	void outputMessage() { std::cout << _message << std::endl; }
 

@@ -23,10 +23,55 @@ public:
 
 	void pop() override;
 
-	void push(const T& theElement);
+	void push(const T& theElement) override;
 
 private:
 	int stackTop; // current top of stack
 	int arrayLength;
 	T* stack;
 };
+
+template<typename T>
+arrayStack<T>::arrayStack(int initialCapacity)
+{
+	if (initialCapacity < 1)
+	{
+		ostringstream s;
+		s << "Initial capacity = " << initialCapacity << " Must be > 0";
+		throw illegalParameterValue(s.str());
+	}
+	arrayLength = initialCapacity;
+	stack = new T[arrayLength];
+	stackTop = -1;
+}
+
+template<typename T>
+T& arrayStack<T>::top()
+{
+	if (stackTop == -1)
+		throw stackEmpty();
+
+	return stack[stackTop];
+}
+
+template<typename T>
+void arrayStack<T>::pop()
+{
+	if (stackTop == -1)
+		throw stackEmpty();
+
+	stack[stackTop--].~T();
+}
+
+template<typename T>
+void arrayStack<T>::push(const T& theElement)
+{
+	if (stackTop == arrayLength - 1)
+      {// no space, double capacity
+         changeLength1D(stack, arrayLength, 2 * arrayLength);
+         arrayLength *= 2;
+      }
+
+   // add at stack top
+   stack[++stackTop] = theElement;
+}
