@@ -7,6 +7,7 @@
 #include "myException.h"
 #include "changeLength1D.h"
 #include <sstream>
+#include <assert.h>
 
 template<typename T>
 class arrayStack : public stack<T>
@@ -36,7 +37,7 @@ arrayStack<T>::arrayStack(int initialCapacity)
 {
 	if (initialCapacity < 1)
 	{
-		ostringstream s;
+		std::ostringstream s;
 		s << "Initial capacity = " << initialCapacity << " Must be > 0";
 		throw illegalParameterValue(s.str());
 	}
@@ -75,3 +76,5 @@ void arrayStack<T>::push(const T& theElement)
    // add at stack top
    stack[++stackTop] = theElement;
 }
+
+void arrayStackTest();

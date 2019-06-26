@@ -120,13 +120,18 @@
     <ClInclude Include="chainNode.h" />
     <ClInclude Include="chainWithIterator.h" />
     <ClInclude Include="changeLength1D.h" />
+    <ClInclude Include="derivedLinkedStack.h" />
     <ClInclude Include="linearList.h" />
+    <ClInclude Include="linkedStack.h" />
     <ClInclude Include="myException.h" />
     <ClInclude Include="stack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="arrayListWithIterator.cpp" />
+    <ClCompile Include="arrayStack.cpp" />
     <ClCompile Include="chainWithIterator.cpp" />
+    <ClCompile Include="derivedLinkedStack.cpp" />
+    <ClCompile Include="linkedStack.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

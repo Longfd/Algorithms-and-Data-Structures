@@ -39,6 +39,12 @@
     <ClInclude Include="myException.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="derivedLinkedStack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="linkedStack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="arrayListWithIterator.cpp">
@@ -48,6 +54,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="arrayStack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="derivedLinkedStack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="linkedStack.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
