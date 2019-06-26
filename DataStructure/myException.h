@@ -34,3 +34,19 @@ public:
 private:
 	std::string _message;
 };
+
+class queueEmpty
+{
+public:
+	queueEmpty(std::string message = "Illegal operator on empty queue") :
+		_message(message)
+	{
+	}
+
+	void outputMessage() { std::cout << _message << std::endl; }
+
+	const std::string& what() { return _message; }
+
+private:
+	std::string _message;
+};

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="arrayListWithIterator.h" />
+    <ClInclude Include="arrayQueue.h" />
     <ClInclude Include="arrayStack.h" />
     <ClInclude Include="chainNode.h" />
     <ClInclude Include="chainWithIterator.h" />
@@ -124,10 +125,12 @@
     <ClInclude Include="linearList.h" />
     <ClInclude Include="linkedStack.h" />
     <ClInclude Include="myException.h" />
+    <ClInclude Include="queue.h" />
     <ClInclude Include="stack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="arrayListWithIterator.cpp" />
+    <ClCompile Include="arrayQueue.cpp" />
     <ClCompile Include="arrayStack.cpp" />
     <ClCompile Include="chainWithIterator.cpp" />
     <ClCompile Include="derivedLinkedStack.cpp" />

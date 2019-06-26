@@ -3,6 +3,7 @@
 #include "arrayStack.h"
 #include "derivedLinkedStack.h"
 #include "linkedStack.h"
+#include "arrayQueue.h"
 
 int main(int argc, char* argv[])
 {
@@ -14,7 +15,11 @@ int main(int argc, char* argv[])
 
 	//derivLinkStackTest();
 
-	linkedStackTest();
+	//linkedStackTest();
+
+	arrayQueueTest();
+
+	getchar();
 
 	return 0;
 }

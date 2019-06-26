@@ -19,5 +19,5 @@ public:
 
 	virtual void pop() = 0;
 
-	virtual void push(const T& theElemetn) = 0;
+	virtual void push(const T& theElement) = 0;
 };
