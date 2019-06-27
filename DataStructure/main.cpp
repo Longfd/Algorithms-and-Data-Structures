@@ -4,6 +4,7 @@
 #include "derivedLinkedStack.h"
 #include "linkedStack.h"
 #include "arrayQueue.h"
+#include "linkedQueue.h"
 
 int main(int argc, char* argv[])
 {
@@ -17,7 +18,9 @@ int main(int argc, char* argv[])
 
 	//linkedStackTest();
 
-	arrayQueueTest();
+	//arrayQueueTest();
+
+	linkedQueueTest();
 
 	getchar();
 

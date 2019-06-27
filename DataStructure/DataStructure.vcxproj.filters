@@ -45,6 +45,15 @@
     <ClInclude Include="linkedStack.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="arrayQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="linkedQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="arrayListWithIterator.cpp">
@@ -63,6 +72,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="linkedStack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="arrayQueue.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="linkedQueue.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

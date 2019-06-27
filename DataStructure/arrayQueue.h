@@ -1,5 +1,8 @@
 #pragma once
 
+// a queue implemented with circular array
+// derives from the ADT queue
+
 #include "queue.h"
 #include "myException.h"
 #include <sstream>
@@ -65,16 +68,16 @@ void arrayQueue<T>::push(const T& theElement)
 		T* tmp = new T[2 * _length];
 		
 		int start = (_front + 1) % _length;
-		if (start < 2) {
+		if (start < 2) { // 没有形成环
 			std::copy(_queue + start, _queue + start + _length - 1, tmp);
 		}
-		else {
+		else { // 队列形成环
 			std::copy(_queue + start, _queue + _length, tmp);
 			std::copy(_queue, _queue + _back + 1, tmp + _length - start);
 		}
 
 		_front = 2 * _length - 1;
-		_back = _length - 1;
+		_back = _length - 2;
 		_length *= 2;
 		delete[] _queue;
 		_queue = tmp;
