@@ -68,5 +68,4 @@ void arrayQueueTest()
 		r.pop();
 		cout << "Popped front element" << endl;
 	}
-
 }

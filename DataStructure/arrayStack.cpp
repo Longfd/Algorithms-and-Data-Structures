@@ -26,6 +26,4 @@ void arrayStackTest()
 	catch (stackEmpty e) {
 		std::cout << e.what() << '\n';
 	}
-
-	getchar();
 }

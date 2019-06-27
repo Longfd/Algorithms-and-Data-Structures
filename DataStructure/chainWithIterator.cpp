@@ -40,8 +40,6 @@ void chainUnitTest()
 	catch (illegalParameterValue& e) {
 		std::cout << "illegalParameterValue:" << e.what();
 	}
-
-	getchar();
 }
 
 typedef struct Student

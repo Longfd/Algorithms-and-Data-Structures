@@ -38,6 +38,4 @@ void arrayListUnitTest()
 	catch (illegalParameterValue& e) {
 		std::cout << "illegalParameterValue:" << e.what();
 	}
-
-	getchar();
 }

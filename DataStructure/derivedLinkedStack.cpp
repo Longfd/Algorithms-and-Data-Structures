@@ -24,6 +24,4 @@ void derivLinkStackTest()
 	catch (stackEmpty e) {
 		std::cout << e.what() << '\n';
 	}
-
-	getchar();
 }

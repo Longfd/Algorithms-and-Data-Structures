@@ -5,22 +5,25 @@
 #include "linkedStack.h"
 #include "arrayQueue.h"
 #include "linkedQueue.h"
+#include "mySort.h"
 
 int main(int argc, char* argv[])
 {
 	//arrayListUnitTest();
-
+	
 	//chainUnitTest();
-
+	
 	//arrayStackTest();
-
+	
 	//derivLinkStackTest();
-
+	
 	//linkedStackTest();
-
+	
 	//arrayQueueTest();
+	
+	//linkedQueueTest();
 
-	linkedQueueTest();
+	mySortTest();
 
 	getchar();
 
