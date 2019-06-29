@@ -139,6 +139,7 @@
     <ClCompile Include="linkedQueue.cpp" />
     <ClCompile Include="linkedStack.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mySort.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

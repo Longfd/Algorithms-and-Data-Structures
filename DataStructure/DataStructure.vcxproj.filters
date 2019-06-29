@@ -83,5 +83,8 @@
     <ClCompile Include="linkedQueue.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="mySort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
