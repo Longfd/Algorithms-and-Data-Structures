@@ -57,6 +57,9 @@
     <ClInclude Include="mySort.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="bSearch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="arrayListWithIterator.cpp">
@@ -84,6 +87,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="mySort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bSearch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

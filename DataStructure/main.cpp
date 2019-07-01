@@ -6,6 +6,7 @@
 #include "arrayQueue.h"
 #include "linkedQueue.h"
 #include "mySort.h"
+#include "bSearch.h"
 
 int main(int argc, char* argv[])
 {
@@ -23,7 +24,9 @@ int main(int argc, char* argv[])
 	
 	//linkedQueueTest();
 
-	mySortTest();
+	//mySortTest();
+
+	bSearchTest();
 
 	getchar();
 
