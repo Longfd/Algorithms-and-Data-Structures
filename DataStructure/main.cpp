@@ -8,28 +8,23 @@
 #include "mySort.h"
 #include "bSearch.h"
 #include "skipList.h"
+#include "sortedChain.h"
+#include "hashChains.h"
 
 int main(int argc, char* argv[])
 {
 	//arrayListUnitTest();
-	
 	//chainUnitTest();
-	
 	//arrayStackTest();
-	
 	//derivLinkStackTest();
-	
 	//linkedStackTest();
-	
 	//arrayQueueTest();
-	
 	//linkedQueueTest();
-
 	//mySortTest();
-
 	//bSearchTest();
+	//skipListTest();
 
-	skipListTest();
+	hashChainsTest();
 
 	getchar();
 

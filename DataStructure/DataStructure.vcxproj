@@ -124,14 +124,18 @@
     <ClInclude Include="changeLength1D.h" />
     <ClInclude Include="derivedLinkedStack.h" />
     <ClInclude Include="dictionary.h" />
+    <ClInclude Include="hash.h" />
+    <ClInclude Include="hashChains.h" />
     <ClInclude Include="linearList.h" />
     <ClInclude Include="linkedQueue.h" />
     <ClInclude Include="linkedStack.h" />
     <ClInclude Include="myException.h" />
     <ClInclude Include="mySort.h" />
+    <ClInclude Include="pairNode.h" />
     <ClInclude Include="queue.h" />
     <ClInclude Include="skipList.h" />
     <ClInclude Include="skipNode.h" />
+    <ClInclude Include="sortedChain.h" />
     <ClInclude Include="stack.h" />
   </ItemGroup>
   <ItemGroup>
@@ -141,11 +145,13 @@
     <ClCompile Include="bSearch.cpp" />
     <ClCompile Include="chainWithIterator.cpp" />
     <ClCompile Include="derivedLinkedStack.cpp" />
+    <ClCompile Include="hashChains.cpp" />
     <ClCompile Include="linkedQueue.cpp" />
     <ClCompile Include="linkedStack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mySort.cpp" />
     <ClCompile Include="skipList.cpp" />
+    <ClCompile Include="sortedChain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

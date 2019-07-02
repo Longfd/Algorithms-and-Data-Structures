@@ -69,6 +69,18 @@
     <ClInclude Include="dictionary.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="hash.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="pairNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="sortedChain.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="hashChains.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="arrayListWithIterator.cpp">
@@ -102,6 +114,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="skipList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sortedChain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hashChains.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
