@@ -118,6 +118,8 @@
     <ClInclude Include="arrayListWithIterator.h" />
     <ClInclude Include="arrayQueue.h" />
     <ClInclude Include="arrayStack.h" />
+    <ClInclude Include="binaryTree.h" />
+    <ClInclude Include="binaryTreeNode.h" />
     <ClInclude Include="bSearch.h" />
     <ClInclude Include="chainNode.h" />
     <ClInclude Include="chainWithIterator.h" />
@@ -127,6 +129,7 @@
     <ClInclude Include="hash.h" />
     <ClInclude Include="hashChains.h" />
     <ClInclude Include="linearList.h" />
+    <ClInclude Include="linkedBinaryTree.h" />
     <ClInclude Include="linkedQueue.h" />
     <ClInclude Include="linkedStack.h" />
     <ClInclude Include="myException.h" />
@@ -146,6 +149,7 @@
     <ClCompile Include="chainWithIterator.cpp" />
     <ClCompile Include="derivedLinkedStack.cpp" />
     <ClCompile Include="hashChains.cpp" />
+    <ClCompile Include="linkedBinaryTree.cpp" />
     <ClCompile Include="linkedQueue.cpp" />
     <ClCompile Include="linkedStack.cpp" />
     <ClCompile Include="main.cpp" />

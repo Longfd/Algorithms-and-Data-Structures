@@ -81,6 +81,15 @@
     <ClInclude Include="hashChains.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="binaryTreeNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="binaryTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="linkedBinaryTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="arrayListWithIterator.cpp">
@@ -120,6 +129,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="hashChains.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="linkedBinaryTree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

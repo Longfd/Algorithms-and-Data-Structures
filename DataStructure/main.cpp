@@ -10,21 +10,33 @@
 #include "skipList.h"
 #include "sortedChain.h"
 #include "hashChains.h"
+#include "linkedBinaryTree.h"
 
 int main(int argc, char* argv[])
 {
 	//arrayListUnitTest();
+
 	//chainUnitTest();
+
 	//arrayStackTest();
+
 	//derivLinkStackTest();
+
 	//linkedStackTest();
+
 	//arrayQueueTest();
+
 	//linkedQueueTest();
+
 	//mySortTest();
+
 	//bSearchTest();
+
 	//skipListTest();
 
-	hashChainsTest();
+	//hashChainsTest();
+
+	linkedBinaryTreeTest();
 
 	getchar();
 

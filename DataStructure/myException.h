@@ -50,3 +50,19 @@ public:
 private:
 	std::string _message;
 };
+
+class treeEmpty
+{
+public:
+	treeEmpty(std::string message = "Illegal operator on empty tree") :
+		_message(message)
+	{
+	}
+
+	void outputMessage() { std::cout << _message << std::endl; }
+
+	const std::string& what() { return _message; }
+
+private:
+	std::string _message;
+};
