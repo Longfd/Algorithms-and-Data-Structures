@@ -90,6 +90,9 @@
     <ClInclude Include="linkedBinaryTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="maxPriorityQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="arrayListWithIterator.cpp">

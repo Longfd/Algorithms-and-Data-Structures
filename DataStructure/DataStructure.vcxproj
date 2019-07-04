@@ -132,6 +132,7 @@
     <ClInclude Include="linkedBinaryTree.h" />
     <ClInclude Include="linkedQueue.h" />
     <ClInclude Include="linkedStack.h" />
+    <ClInclude Include="maxPriorityQueue.h" />
     <ClInclude Include="myException.h" />
     <ClInclude Include="mySort.h" />
     <ClInclude Include="pairNode.h" />
