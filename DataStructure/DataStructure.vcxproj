@@ -132,6 +132,7 @@
     <ClInclude Include="linkedBinaryTree.h" />
     <ClInclude Include="linkedQueue.h" />
     <ClInclude Include="linkedStack.h" />
+    <ClInclude Include="maxHeap.h" />
     <ClInclude Include="maxPriorityQueue.h" />
     <ClInclude Include="myException.h" />
     <ClInclude Include="mySort.h" />
@@ -154,6 +155,7 @@
     <ClCompile Include="linkedQueue.cpp" />
     <ClCompile Include="linkedStack.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="maxHeap.cpp" />
     <ClCompile Include="mySort.cpp" />
     <ClCompile Include="skipList.cpp" />
     <ClCompile Include="sortedChain.cpp" />

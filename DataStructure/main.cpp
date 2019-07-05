@@ -11,6 +11,7 @@
 #include "sortedChain.h"
 #include "hashChains.h"
 #include "linkedBinaryTree.h"
+#include "maxHeap.h"
 
 int main(int argc, char* argv[])
 {
@@ -36,7 +37,9 @@ int main(int argc, char* argv[])
 
 	//hashChainsTest();
 
-	linkedBinaryTreeTest();
+	//linkedBinaryTreeTest();
+
+	maxHeapTest();
 
 	getchar();
 

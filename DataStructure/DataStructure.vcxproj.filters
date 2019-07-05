@@ -93,6 +93,9 @@
     <ClInclude Include="maxPriorityQueue.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="maxHeap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="arrayListWithIterator.cpp">
@@ -135,6 +138,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="linkedBinaryTree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="maxHeap.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
