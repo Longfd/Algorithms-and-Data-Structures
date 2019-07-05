@@ -133,7 +133,8 @@
     <ClInclude Include="linkedQueue.h" />
     <ClInclude Include="linkedStack.h" />
     <ClInclude Include="maxHeap.h" />
-    <ClInclude Include="maxPriorityQueue.h" />
+    <ClInclude Include="minHeap.h" />
+    <ClInclude Include="priorityQueue.h" />
     <ClInclude Include="myException.h" />
     <ClInclude Include="mySort.h" />
     <ClInclude Include="pairNode.h" />
@@ -156,6 +157,7 @@
     <ClCompile Include="linkedStack.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="maxHeap.cpp" />
+    <ClCompile Include="minHeap.cpp" />
     <ClCompile Include="mySort.cpp" />
     <ClCompile Include="skipList.cpp" />
     <ClCompile Include="sortedChain.cpp" />

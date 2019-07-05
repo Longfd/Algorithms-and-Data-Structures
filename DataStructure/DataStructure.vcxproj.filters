@@ -90,10 +90,13 @@
     <ClInclude Include="linkedBinaryTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="maxPriorityQueue.h">
+    <ClInclude Include="maxHeap.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="maxHeap.h">
+    <ClInclude Include="priorityQueue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="minHeap.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -141,6 +144,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="maxHeap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="minHeap.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

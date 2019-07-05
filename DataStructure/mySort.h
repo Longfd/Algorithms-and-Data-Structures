@@ -38,14 +38,15 @@ void insertSort(T* head, int size)
 	for(int i = 1; i < size; ++i)
 	{
 		T insert = head[i];
-		int j = i - 1;
-		for (; j >= 0; --j) {
-			if (insert < head[j]) // ASC
-				head[j + 1] = head[j];
-			else
+		int j = i;
+		for (; j-1 >= 0; --j) {
+			if (head[j - 1] <= insert) // ASC
 				break;
+			else
+				head[j] = head[j - 1];
+			
 		}
-		head[j + 1] = insert;
+		head[j] = insert;
 	}
 }
 

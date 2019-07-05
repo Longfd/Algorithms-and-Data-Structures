@@ -1,14 +1,14 @@
-// abstract class max priority queue
+// abstract class priority queue
 // all methods are pure virtual functions
 
 #pragma once
 
 template<typename T>
-class maxPriorityQueue
+class priorityQueue
 {
 public:
-	maxPriorityQueue() = default;
-	virtual ~maxPriorityQueue() = default;
+	priorityQueue() = default;
+	virtual ~priorityQueue() = default;
 
 	virtual bool empty() const = 0;
 	virtual int size() const = 0;

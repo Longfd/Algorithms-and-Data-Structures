@@ -1,9 +1,9 @@
-// heap implemented with max priority queue
-// derives from ADT maxPriorityQueue
+// max heap implemented with priority queue
+// derives from ADT priorityQueue
 
 #pragma once
 
-#include "maxPriorityQueue.h"
+#include "priorityQueue.h"
 #include "myException.h"
 #include "changeLength1D.h"
 #include <sstream>
@@ -12,7 +12,7 @@
 void maxHeapTest();
 
 template<typename T>
-class maxHeap : public maxPriorityQueue<T>
+class maxHeap : public priorityQueue<T>
 {
 public:
 	maxHeap(int capcity = 5)

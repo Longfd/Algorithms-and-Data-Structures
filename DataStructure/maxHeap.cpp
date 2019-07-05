@@ -36,14 +36,14 @@ void maxHeapTest()
 
 		maxHeap<int> heap2;
 		heap2.initialize(p, arraySize);
-		cout << "heap2.size:" << heap.size() << endl;
-		cout << "heap2.front():" << heap.front() << endl;
+		cout << "heap2.size:" << heap2.size() << endl;
+		cout << "heap2.front():" << heap2.front() << endl;
 	}
 	catch (heapEmpty e) {
-		e.what();
+		cout << e.what();
 	}
 	catch (exception e) {
-		e.what();
+		cout << e.what();
 	}
 	catch (...) {
 		cout << "UnKown Exception!\n";
