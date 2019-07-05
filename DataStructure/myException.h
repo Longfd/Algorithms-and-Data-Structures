@@ -66,3 +66,19 @@ public:
 private:
 	std::string _message;
 };
+
+class heapEmpty
+{
+public:
+	heapEmpty(std::string message = "Illegal operator on empty heap") :
+		_message(message)
+	{
+	}
+
+	void outputMessage() { std::cout << _message << std::endl; }
+
+	const std::string& what() { return _message; }
+
+private:
+	std::string _message;
+};
