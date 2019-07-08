@@ -43,7 +43,7 @@ public:
 		int homeBucket = (int)hash(thePair.first) % divisor;
 		int homeSize = table[homeBucket].size();
 		table[homeBucket].insert(thePair);
-		if (table[homeBucket].size() > homeSize)
+		if (table[homeBucket].size() > homeSize) // if Key exists, update Value, size no change
 			dSize++;
 	}
 
@@ -58,9 +58,9 @@ public:
 
 protected:
 	sortedChain<K, E>* table;  // hash table
-	myHash::hash<K> hash;              // maps type K to nonnegative integer
+	myHash::hash<K> hash;      // maps type K to nonnegative integer
 	int dSize;                 // number of elements in list
-	int divisor;               // hash function divisor
+	int divisor;               // hash function divisor, namely: table size
 };
 
 // overload <<

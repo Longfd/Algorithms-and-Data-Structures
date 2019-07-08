@@ -13,6 +13,7 @@
 #include "linkedBinaryTree.h"
 #include "maxHeap.h"
 #include "minHeap.h"
+#include "binarySearchTree.h"
 
 int main(int argc, char* argv[])
 {
@@ -42,7 +43,9 @@ int main(int argc, char* argv[])
 
 	//maxHeapTest();
 
-	minHeapTest();
+	//minHeapTest();
+
+	binarySearchTreeTest();
 
 	getchar();
 

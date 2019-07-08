@@ -118,9 +118,11 @@
     <ClInclude Include="arrayListWithIterator.h" />
     <ClInclude Include="arrayQueue.h" />
     <ClInclude Include="arrayStack.h" />
+    <ClInclude Include="binarySearchTree.h" />
     <ClInclude Include="binaryTree.h" />
     <ClInclude Include="binaryTreeNode.h" />
     <ClInclude Include="bSearch.h" />
+    <ClInclude Include="bsTree.h" />
     <ClInclude Include="chainNode.h" />
     <ClInclude Include="chainWithIterator.h" />
     <ClInclude Include="changeLength1D.h" />
@@ -148,6 +150,7 @@
     <ClCompile Include="arrayListWithIterator.cpp" />
     <ClCompile Include="arrayQueue.cpp" />
     <ClCompile Include="arrayStack.cpp" />
+    <ClCompile Include="binarySearchTree.cpp" />
     <ClCompile Include="bSearch.cpp" />
     <ClCompile Include="chainWithIterator.cpp" />
     <ClCompile Include="derivedLinkedStack.cpp" />
