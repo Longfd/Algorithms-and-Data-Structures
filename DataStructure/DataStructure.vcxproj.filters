@@ -105,6 +105,24 @@
     <ClInclude Include="bsTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="adjacencyWDigragh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="graph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vertexIterator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="edge.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="weightedEdge.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="make2dArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="arrayListWithIterator.cpp">
@@ -157,6 +175,9 @@
     </ClCompile>
     <ClCompile Include="binarySearchTree.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="adjacencyWDigraph.cpp">
+      <Filter>头文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

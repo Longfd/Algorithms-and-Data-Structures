@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="adjacencyWDigragh.h" />
     <ClInclude Include="arrayListWithIterator.h" />
     <ClInclude Include="arrayQueue.h" />
     <ClInclude Include="arrayStack.h" />
@@ -128,12 +129,15 @@
     <ClInclude Include="changeLength1D.h" />
     <ClInclude Include="derivedLinkedStack.h" />
     <ClInclude Include="dictionary.h" />
+    <ClInclude Include="edge.h" />
+    <ClInclude Include="graph.h" />
     <ClInclude Include="hash.h" />
     <ClInclude Include="hashChains.h" />
     <ClInclude Include="linearList.h" />
     <ClInclude Include="linkedBinaryTree.h" />
     <ClInclude Include="linkedQueue.h" />
     <ClInclude Include="linkedStack.h" />
+    <ClInclude Include="make2dArray.h" />
     <ClInclude Include="maxHeap.h" />
     <ClInclude Include="minHeap.h" />
     <ClInclude Include="priorityQueue.h" />
@@ -145,8 +149,11 @@
     <ClInclude Include="skipNode.h" />
     <ClInclude Include="sortedChain.h" />
     <ClInclude Include="stack.h" />
+    <ClInclude Include="vertexIterator.h" />
+    <ClInclude Include="weightedEdge.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="adjacencyWDigraph.cpp" />
     <ClCompile Include="arrayListWithIterator.cpp" />
     <ClCompile Include="arrayQueue.cpp" />
     <ClCompile Include="arrayStack.cpp" />

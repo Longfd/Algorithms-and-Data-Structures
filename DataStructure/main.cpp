@@ -14,6 +14,7 @@
 #include "maxHeap.h"
 #include "minHeap.h"
 #include "binarySearchTree.h"
+#include "adjacencyWDigragh.h"
 
 int main(int argc, char* argv[])
 {
@@ -45,7 +46,9 @@ int main(int argc, char* argv[])
 
 	//minHeapTest();
 
-	binarySearchTreeTest();
+	//binarySearchTreeTest();
+
+	adjacencyWDigraphTest();
 
 	getchar();
 
