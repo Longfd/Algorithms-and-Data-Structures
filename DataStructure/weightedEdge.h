@@ -11,8 +11,10 @@ class weightedEdge : public edge<T>
 public:
 	weightedEdge() {};
 	weightedEdge(int theV1, int theV2, T theW)
+		:v1(theV1),
+		v2(theV2),
+		w(theW)
 	{
-		v1 = theV1; v2 = theV2; w = theW;
 	}
 	~weightedEdge() {};
 	int vertex1() const { return v1; }

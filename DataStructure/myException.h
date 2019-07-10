@@ -82,3 +82,19 @@ public:
 private:
 	std::string _message;
 };
+
+class undefinedMethod
+{
+public:
+	undefinedMethod(std::string message = "This method is undefined") :
+		_message(message)
+	{
+	}
+
+	void outputMessage() { std::cout << _message << std::endl; }
+
+	const std::string& what() { return _message; }
+
+private:
+	std::string _message;
+};
