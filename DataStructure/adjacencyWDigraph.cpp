@@ -3,9 +3,11 @@
 
 using namespace std;
 
+void recurPrint(int* p, int src, int dest);
+
 void adjacencyWDigraphTest()
 {
-	adjacencyWDigraph<int> g(4);
+	adjacencyWDigraph<int> g(10);
 	cout << "Number of Vertices = " << g.numberOfVertices() << endl;
 	cout << "Number of Edges = " << g.numberOfEdges() << endl;
 	cout << endl;
@@ -41,4 +43,45 @@ void adjacencyWDigraphTest()
 	int vertex;
 	while ((vertex = gi->next()) != 0)
 		cout << vertex << " " << endl;
+
+	// test findPath
+	g.insertEdge(new weightedEdge<int>(3, 5, 1));
+	g.insertEdge(new weightedEdge<int>(5, 4, 1));
+	g.insertEdge(new weightedEdge<int>(2, 6, 1));
+	cout << "findPath(1, 6):1 ";
+	int* path = g.rFindPath(1, 6);
+	if (path != nullptr) {
+		for (int i = 1; i <= path[0]; ++i)
+			cout << path[i] << " ";
+		cout << endl;
+		delete[] path;
+	}
+	else
+		cout << "there is no path from 1 to 2";
+
+	cout << "FindShortestPath(1, 6):1 ";
+	int* shortPath = g.FindShortestPath(1, 6);
+	if (shortPath != nullptr) {
+		recurPrint(shortPath, 1, 6);
+		cout << endl;
+		delete[] shortPath;
+	}
+		
+	cout << "findPath(2, 1):";
+	path = g.rFindPath(2, 1);
+	if (path != nullptr) {
+		std::copy(path + 1, path + 1 + path[0], std::ostream_iterator<int>(cout, " "));
+		cout << endl;
+		delete[] path;
+	}
+	else
+		cout << "there is no path from 2 to 1";
+
+}
+
+void recurPrint(int* p, int src, int dest)
+{
+	if (src == dest) return;
+	recurPrint(p, src, p[dest]);
+	cout << dest << " ";
 }

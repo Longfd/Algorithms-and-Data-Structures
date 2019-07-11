@@ -93,14 +93,25 @@ public:
 
 	// addtional method
 	void checkVertex(int theVertex) const;
+
 	void bfs(int v, int reach[], int label);
 	void dfs(int v, int reach[], int label);
+	int* rFindPath(int src, int dest); // recursion -> dfs
+	bool rPath(int v);
+	int* FindShortestPath(int src, int dest); // non-recursion -> bfs
 
 protected:
 	int n;           // number of vertices
 	int e;           // number of edges
 	T ** a;           // adjacency array
 	T noEdge;        // denotes absent edge
+
+	// for find path
+	int length = 0;
+	int destnation = 0;
+	int* path = 0;
+	int* reach = 0;
+	int* prev = 0;
 };
 
 template <class T>
@@ -225,4 +236,86 @@ void adjacencyWDigraph<T>::dfs(int v, int reach[], int label)
 	for (int i = 1; i < n + 1; ++i)
 		if (a[v][i] != noEdge && reach[i] != label)
 			dfs(i, reach, label);
+}
+
+template <class T>
+int* adjacencyWDigraph<T>::rFindPath(int src, int dest)
+{
+	checkVertex(src);
+	checkVertex(dest);
+	length = 0;
+	destnation = dest;
+	path = (int*)calloc(sizeof(int), n + 1); // record vertex from src to dest, 
+											// path[0] = edge number from src to dest 
+	reach = (int*)calloc(sizeof(int), n + 1);// lable visited vertex
+	if (path == 0 || reach == 0)
+		throw std::exception("adjacencyWDigraph<T>::findPath(): path == 0 || reach == 0");
+
+	if (src == dest || rPath(src)) {
+		path[0] = length;
+	}
+	else {
+		delete[] path;
+		path = nullptr;
+	}
+
+	delete[] reach;
+	return path;
+}
+
+template <class T>
+bool adjacencyWDigraph<T>::rPath(int v)
+{
+	reach[v] = 1;
+
+	for (int u = 1; u < n + 1; ++u) {
+		if (a[v][u] == noEdge || reach[u] == 1)
+			continue;
+		
+		path[++length] = u;
+		if (u == destnation || rPath(u))
+			return true;
+		else
+			--length;
+	}
+	return false;
+}
+
+template <class T>
+int* adjacencyWDigraph<T>::FindShortestPath(int src, int dest)
+{
+	if (src == dest) return nullptr;
+	checkVertex(src);
+	checkVertex(dest);
+
+	prev = new int[n + 1];
+	reach = new int[n + 1];
+	memset(prev, 0, sizeof(int)*(n + 1));
+	memset(reach, 0, sizeof(int)*(n + 1));
+	arrayQueue<int> que;
+
+	reach[src] = 1;
+	que.push(src);
+	while (!que.empty())
+	{
+		int cur = que.front();
+		que.pop();
+
+		for (int i = 1; i < n + 1; ++i) {
+			if (a[cur][i] == noEdge || reach[i] == 1)
+				continue;
+			prev[i] = cur;
+			if (i == dest) {
+				delete[] reach;
+				return prev;
+			}
+			reach[i] = 1; // make sure vertex only vist once 
+						  // and prev[] is the shortest path vertex
+			que.push(i);
+		}
+	}
+
+	delete[] reach;
+	delete[] prev;
+	return nullptr;
 }
