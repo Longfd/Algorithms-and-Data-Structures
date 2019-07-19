@@ -62,6 +62,7 @@ void(*linkedBinaryTree<int>::visit)(binaryTreeNode<int>*);
 void(*linkedBinaryTree<char>::visit)(binaryTreeNode<char>*);
 void(*linkedBinaryTree<std::pair<int, char> >::visit)(binaryTreeNode<std::pair<int, char> >*);
 void(*linkedBinaryTree<std::pair<const int, char> >::visit)(binaryTreeNode<std::pair<const int, char> >*);
+void(*linkedBinaryTree<std::pair<int, int> >::visit)(binaryTreeNode<std::pair<int, int> >*);
 
 template<>
 static void linkedBinaryTree<std::pair<int, char>>::printElement(
@@ -70,6 +71,12 @@ static void linkedBinaryTree<std::pair<int, char>>::printElement(
 template<>
 static void linkedBinaryTree<std::pair<const int, char>>::printElement(
 	binaryTreeNode<std::pair<const int, char>>* node)
+{
+	std::cout << node->element.first << node->element.second << " ";
+}
+template<>
+static void linkedBinaryTree<std::pair<int, int>>::printElement(
+	binaryTreeNode<std::pair<int, int>>* node)
 {
 	std::cout << node->element.first << node->element.second << " ";
 }
