@@ -60,7 +60,8 @@ void maxHBLT<T>::meld(binaryTreeNode<std::pair<int, T>>* & x,
 {// Meld leftist trees with roots *x and *y.
  // Return pointer to new root in x.
 	if (y == nullptr)
-		//throw illegalParameterValue("maxHBLT<T>::meld: y should be not null"); wrong: if this, the tree never can be cleaned
+		//throw illegalParameterValue("maxHBLT<T>::meld: y should be not null"); 
+		// Notice: if this, the tree never can be cleaned
 		return;
 
 	if (x == nullptr) {
@@ -74,7 +75,7 @@ void maxHBLT<T>::meld(binaryTreeNode<std::pair<int, T>>* & x,
 
 	meld(x->rightChild, y);
 
-	if (x->leftChild == nullptr)
+	if (x->leftChild == nullptr) // Notice: if left is null, the min s value should be 1
 	{// after swap, the S value of x is 1
 		std::swap(x->leftChild, x->rightChild);
 		x->element.first = 1;
