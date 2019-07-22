@@ -150,6 +150,7 @@
     <ClInclude Include="skipNode.h" />
     <ClInclude Include="sortedChain.h" />
     <ClInclude Include="stack.h" />
+    <ClInclude Include="StringMatch.h" />
     <ClInclude Include="vertexIterator.h" />
     <ClInclude Include="weightedEdge.h" />
   </ItemGroup>
@@ -173,6 +174,7 @@
     <ClCompile Include="mySort.cpp" />
     <ClCompile Include="skipList.cpp" />
     <ClCompile Include="sortedChain.cpp" />
+    <ClCompile Include="StringMatch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

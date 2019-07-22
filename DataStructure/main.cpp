@@ -16,6 +16,7 @@
 #include "binarySearchTree.h"
 #include "adjacencyWDigragh.h"
 #include "maxHBLT.h"
+#include "StringMatch.h"
 
 int main(int argc, char* argv[])
 {
@@ -51,7 +52,9 @@ int main(int argc, char* argv[])
 
 	//adjacencyWDigraphTest();
 
-	maxHBLTTest();
+	//maxHBLTTest();
+
+	StringMatchTest();
 
 	getchar();
 

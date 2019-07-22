@@ -126,6 +126,9 @@
     <ClInclude Include="maxHBLT.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="StringMatch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="arrayListWithIterator.cpp">
@@ -183,6 +186,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="maxHBLT.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StringMatch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
