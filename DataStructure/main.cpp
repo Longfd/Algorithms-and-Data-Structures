@@ -17,6 +17,7 @@
 #include "adjacencyWDigragh.h"
 #include "maxHBLT.h"
 #include "StringMatch.h"
+#include "dynamicPrograming.h"
 
 int main(int argc, char* argv[])
 {
@@ -54,7 +55,9 @@ int main(int argc, char* argv[])
 
 	//maxHBLTTest();
 
-	StringMatchTest();
+	//StringMatchTest();
+
+	dynamicProgramingTest();
 
 	getchar();
 

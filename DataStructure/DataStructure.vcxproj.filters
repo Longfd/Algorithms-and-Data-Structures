@@ -129,6 +129,9 @@
     <ClInclude Include="StringMatch.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="dynamicPrograming.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="arrayListWithIterator.cpp">
@@ -189,6 +192,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="StringMatch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dynamicPrograming.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

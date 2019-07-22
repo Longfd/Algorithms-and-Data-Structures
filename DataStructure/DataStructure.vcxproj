@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="dynamicPrograming.h" />
     <ClInclude Include="adjacencyWDigragh.h" />
     <ClInclude Include="arrayListWithIterator.h" />
     <ClInclude Include="arrayQueue.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="weightedEdge.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="dynamicPrograming.cpp" />
     <ClCompile Include="adjacencyWDigraph.cpp" />
     <ClCompile Include="arrayListWithIterator.cpp" />
     <ClCompile Include="arrayQueue.cpp" />
