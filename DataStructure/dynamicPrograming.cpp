@@ -146,17 +146,60 @@ int shortestPath3(int w[][COLUMN], int n, int m)
 	return K[n][m];
 }
 
+int comp(char a, char b) { return (a == b) ? 0 : 1; }
+int min3(int a, int b, int c)
+{
+	int min1 = min(a, b);
+	int min2 = min(b, c);
+	return min(min1, min2);
+}
+int K2[10][6] = { 0 };
+int minEditDistance(char a[], char b[], int n, int m)
+{
+	int i, j;
+
+	K2[0][0] = comp(a[0], b[0]);
+	for (i = 1; i < n; i++) {
+		if (a[i] == b[0])
+			K2[i][0] = i; // 如果相等, 编辑距离刚好为 a[i]字符串长度-1 -> i
+		else
+			K2[i][0] = K2[i - 1][0] + 1;
+	}
+	for (j = 1; i < m; j++) {
+		if (b[j] == a[0])
+			K2[0][j] = j;
+		else
+			K2[i][0] = K2[0][j - 1] + 1;
+	}
+
+	for (i = 1; i < n; i++)
+	{
+		for (j = 1; j < m; j++)
+		{
+			if (a[i] == b[j])
+				// 注意这里, 如果本就相等, 单左移或上移操作本身会增加Edit Distance
+				K2[i][j] = min3(K2[i - 1][j] + 1, K2[i][j - 1] + 1, K2[i - 1][j - 1]);
+			else
+				K2[i][j] = 1 + min3(K2[i - 1][j], K2[i][j - 1], K2[i - 1][j - 1]);
+		}
+	}
+
+	return K2[n - 1][m - 1];
+}
+
+
 void dynamicProgramingTest()
 {
+	// knapsack
 	int val[] = { 60,100,120 };
 	int wt[] = { 10,20,30 };
 	int W = 50;
 	int n = sizeof(val) / sizeof(val[0]);
-
 	cout << "knapsack():" << knapsack(W, wt, val, n) << endl;
 	cout << "knapsack2():" << knapsack2(W, wt, val, 0, n) << endl;
 	cout << "knapsack3():" << knapsack3(W, wt, val, n) << endl;
 
+	// shortest path
 	int w[ROW][COLUMN] = { {1,3,5,9},
 						 {2,1,3,4},
 						 {5,2,6,7},
@@ -164,4 +207,9 @@ void dynamicProgramingTest()
 	cout << "shortestPath():" << shortestPath(w, ROW - 1, COLUMN - 1) << endl;
 	cout << "shortestPath2():" << shortestPath2(w, ROW - 1, COLUMN - 1) << endl;
 	cout << "shortestPath3():" << shortestPath3(w, ROW - 1, COLUMN - 1) << endl;
+
+	// edit distance
+	char a[] = "abticlkafj";
+	char b[] = "atclaj";
+	cout << "minEditDistance():" << minEditDistance(a, b, strlen(a), strlen(b)) << endl;
 }
