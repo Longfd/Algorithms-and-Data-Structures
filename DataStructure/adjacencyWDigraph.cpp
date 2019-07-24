@@ -75,8 +75,24 @@ void adjacencyWDigraphTest()
 		delete[] path;
 	}
 	else
-		cout << "there is no path from 2 to 1";
+		cout << "there is no path from 2 to 1" << endl;
 
+	// test topological order
+	adjacencyWDigraph<int> g2(6);
+	int order[6] = { 0 };
+	g2.insertEdge(new weightedEdge<int>(1, 3, 1));
+	g2.insertEdge(new weightedEdge<int>(1, 4, 1));
+	g2.insertEdge(new weightedEdge<int>(3, 4, 1));
+	g2.insertEdge(new weightedEdge<int>(3, 6, 1));
+	g2.insertEdge(new weightedEdge<int>(2, 4, 1));
+	g2.insertEdge(new weightedEdge<int>(2, 5, 1));
+	g2.insertEdge(new weightedEdge<int>(4, 6, 1));
+	g2.insertEdge(new weightedEdge<int>(5, 6, 1));
+
+	cout << "topologicalOrder:" << g2.topologicalOrder(order) << endl;
+	for (int i = 0; i < 6; i++)
+		cout << order[i] << " ";
+	cout << endl;
 }
 
 void recurPrint(int* p, int src, int dest)

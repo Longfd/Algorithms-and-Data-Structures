@@ -9,6 +9,7 @@
 #include "make2dArray.h"
 #include "myException.h"
 #include "arrayQueue.h"
+#include "arrayStack.h"
 
 #pragma once
 
@@ -100,6 +101,8 @@ public:
 	bool rPath(int v);
 	int* FindShortestPath(int src, int dest); // non-recursion -> bfs
 
+	bool topologicalOrder(int* theOrder);
+
 protected:
 	int n;           // number of vertices
 	int e;           // number of edges
@@ -137,7 +140,7 @@ bool adjacencyWDigraph<T>::existsEdge(int i, int j) const
 
 template <class T>
 void adjacencyWDigraph<T>::insertEdge(edge<T>* theEdge)
-{
+{// no loop
 	int v1 = theEdge->vertex1();
 	int v2 = theEdge->vertex2();
 	if (v1 < 1 || v2 < 1 || v1 > n || v2 > n || v1 == v2) {
@@ -318,4 +321,43 @@ int* adjacencyWDigraph<T>::FindShortestPath(int src, int dest)
 	delete[] reach;
 	delete[] prev;
 	return nullptr;
+}
+
+template <class T>
+bool adjacencyWDigraph<T>::topologicalOrder(int* theOrder)
+{// Return false if the digraph has no topological order
+ // theOrder[0:n-1] is set to a topological order when such an order exist
+	
+	arrayStack<int> stack;
+	int n = numberOfVertices();
+	int* inDegree = (int*)calloc(n + 1, sizeof(int));
+
+	// compute in-degree
+	for (int i = 1; i <= n; i++) 
+		inDegree[i] = this->inDegree(i);
+
+	// the queue contains vertex which in-degree is 0
+	for (int i = 1; i <= n; i++)
+		if (inDegree[i] == 0)
+			stack.push(i);
+
+	// generate topological order
+	int j = 0; // cursor for array: theOrder
+	while (!stack.empty())
+	{
+		int theVertex = stack.top();
+		stack.pop();
+		theOrder[j++] = theVertex;
+
+		for (int i = 1; i <= n; i++) {
+			if (a[theVertex][i] != noEdge) {
+				inDegree[i]--;
+				if (inDegree[i] == 0)
+					stack.push(i);
+			}
+		}
+	}
+
+	free(inDegree);
+	return (j == n);
 }

@@ -51,13 +51,13 @@ int main(int argc, char* argv[])
 
 	//binarySearchTreeTest();
 
-	//adjacencyWDigraphTest();
+	adjacencyWDigraphTest();
 
 	//maxHBLTTest();
 
 	//StringMatchTest();
 
-	dynamicProgramingTest();
+	//dynamicProgramingTest();
 
 	getchar();
 
