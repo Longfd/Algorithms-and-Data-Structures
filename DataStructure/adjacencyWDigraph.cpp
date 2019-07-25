@@ -4,6 +4,7 @@
 using namespace std;
 
 void recurPrint(int* p, int src, int dest);
+void recurPrint2(int* p, int dest);
 
 void adjacencyWDigraphTest()
 {
@@ -93,11 +94,36 @@ void adjacencyWDigraphTest()
 	for (int i = 0; i < 6; i++)
 		cout << order[i] << " ";
 	cout << endl;
+
+	// test shortestPaths
+	adjacencyWDigraph<int> g3(6);
+	int distFromSource[7] = { 0 };
+	int predecessor[7] = { 0 };
+	g3.insertEdge(new weightedEdge<int>(1, 2, 10));
+	g3.insertEdge(new weightedEdge<int>(2, 3, 15));
+	g3.insertEdge(new weightedEdge<int>(2, 4, 2));
+	g3.insertEdge(new weightedEdge<int>(4, 3, 1));
+	g3.insertEdge(new weightedEdge<int>(3, 6, 5));
+	g3.insertEdge(new weightedEdge<int>(1, 5, 15));
+	g3.insertEdge(new weightedEdge<int>(5, 6, 10));
+
+	g3.shortestPaths(1, distFromSource, predecessor);
+
+	cout << "shortestPaths From 1 to 6:" << endl;
+	recurPrint2(predecessor, 6);
+	cout << endl;
 }
 
 void recurPrint(int* p, int src, int dest)
 {
 	if (src == dest) return;
 	recurPrint(p, src, p[dest]);
+	cout << dest << " ";
+}
+
+void recurPrint2(int* p, int dest)
+{
+	if (0 == dest) return;
+	recurPrint2(p, p[dest]);
 	cout << dest << " ";
 }

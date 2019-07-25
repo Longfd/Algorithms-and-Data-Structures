@@ -10,6 +10,7 @@
 #include "myException.h"
 #include "arrayQueue.h"
 #include "arrayStack.h"
+#include "chainWithIterator.h"
 
 #pragma once
 
@@ -102,6 +103,7 @@ public:
 	int* FindShortestPath(int src, int dest); // non-recursion -> bfs
 
 	bool topologicalOrder(int* theOrder);
+	void shortestPaths(int source, T* distanceFromSource, int* predecessor);
 
 protected:
 	int n;           // number of vertices
@@ -360,4 +362,64 @@ bool adjacencyWDigraph<T>::topologicalOrder(int* theOrder)
 
 	free(inDegree);
 	return (j == n);
+}
+
+template <class T>
+void adjacencyWDigraph<T>::shortestPaths(int source, T* distanceFromSource, int* predecessor)
+{// Find shortest paths to all reachable vertex from Vertex source 
+ // Return shortest distances in distanceFromSource
+ // Return predecessor information in predecessor
+	checkVertex(source);
+
+	chain<int> newReachableVertices;
+
+	// initialize
+	for (int i = 1; i <= n; i++) {
+		distanceFromSource[i] = a[source][i];
+		if (distanceFromSource[i] == noEdge)
+			predecessor[i] = -1;
+		else {
+			predecessor[i] = source;
+			newReachableVertices.insert(0, i);
+		}
+	}
+	distanceFromSource[source] = 0;
+	predecessor[source] = 0; // source vertex has no predecessor
+
+	// Update distanceFromSource AND predecessor
+	while (!newReachableVertices.empty())
+	{
+		int minDistanceIdx = 0,
+			nextVertex = newReachableVertices.get(0),
+			minDistance = distanceFromSource[nextVertex];
+		for (int i = 0; i < newReachableVertices.size(); i++)
+		{
+			nextVertex = newReachableVertices.get(i);
+			if (distanceFromSource[nextVertex] < minDistance) {
+				minDistance = distanceFromSource[nextVertex];
+				minDistanceIdx = i;
+			}
+		}
+		nextVertex = newReachableVertices.get(minDistanceIdx);
+
+		// next shortest path is from source to nextVertex
+		// delete idx of nextVertex from newReachableVertices and update distanceFromSource
+		newReachableVertices.erase(minDistanceIdx);
+
+		for (int j = 1; j <= n; j++)
+		{
+			if (a[nextVertex][j] != noEdge &&
+				(predecessor[j] == -1 ||
+					distanceFromSource[j] > distanceFromSource[nextVertex] + a[nextVertex][j]))
+			{
+				// update distanceFromSource
+				distanceFromSource[j] = distanceFromSource[nextVertex] + a[nextVertex][j];
+				// not reached before, add j to newReachableVertices
+				if (predecessor[j] == -1)
+					newReachableVertices.insert(0, j);
+				// this line cannot move up
+				predecessor[j] = nextVertex;
+			}
+		}
+	}
 }
