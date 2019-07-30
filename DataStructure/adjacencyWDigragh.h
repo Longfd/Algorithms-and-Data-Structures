@@ -417,7 +417,9 @@ void adjacencyWDigraph<T>::shortestPaths(int source, T* distanceFromSource, int*
 				// not reached before, add j to newReachableVertices
 				if (predecessor[j] == -1)
 					newReachableVertices.insert(0, j);
-				// this line cannot move up
+				// this line cannot move up 
+				// because it has two meanings: first reach vertex j
+				// or update: the distance from soruce to j through "nextVertex" is shorter 
 				predecessor[j] = nextVertex;
 			}
 		}
