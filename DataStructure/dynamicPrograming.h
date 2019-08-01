@@ -52,7 +52,7 @@ int shortestPath(int w[][4], int i, int j);
 // use recursion with duplicate array, < O(2^n)
 int shortestPath2(int w[][4], int i, int j);
 
-// use table O(n*m)
+// use table O(n*m) Dijkstra Algorithm
 int shortestPath3(int w[][4], int n, int m);
 
 /*****************************Shortest Path End*******************************/
