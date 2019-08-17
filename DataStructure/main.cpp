@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
 
 	//mySortTest();
 
-	//bSearchTest();
+	bSearchTest();
 
 	//skipListTest();
 
@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
 
 	//binarySearchTreeTest();
 
-	adjacencyWDigraphTest();
+	//adjacencyWDigraphTest();
 
 	//maxHBLTTest();
 

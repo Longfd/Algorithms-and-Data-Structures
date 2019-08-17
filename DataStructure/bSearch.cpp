@@ -1,5 +1,6 @@
 #include "bSearch.h"
 #include <iostream>
+#include <assert.h>
 
 void bSearchTest()
 {
@@ -10,6 +11,7 @@ void bSearchTest()
 	// 二分查找
 	std::cout << "bSearch(a1:0):" << bSearchNormal(a1, 0, 0, 0) << '\n';
 	std::cout << "bSearch(a1:1):" << bSearchNormal(a1, 0, 0, 1) << '\n';
+	assert(bSearchNormal(a5, 0, 5, 6) == bSearchRecursion(a5, 0, 5, 6));
 
 	std::cout << "bSearchFirstEqual(a4:1):" << bSearchFirstEqual(a4, 0, 4, 1) << '\n';
 	std::cout << "bSearchLastEqual(a4:1):" << bSearchLastEqual(a4, 0, 4, 1) << '\n';
